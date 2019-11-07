@@ -1,16 +1,11 @@
 <template>
   <div id="app">
-    <div class="container body">
-      <div class="main_container">
-        <Navbar />
-        <router-view/>
-      </div>
-    </div>
+    <layoutDefault />
   </div>
 </template>
 
 <script>
-import Navbar from '@/views/navbar/Navbar.vue'
+import layoutDefault from '@/layout/layoutDefault.vue'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'font-awesome/css/font-awesome.min.css'
@@ -20,11 +15,11 @@ import '@/assets/sass/custom.scss'
 export default {
   name: 'app',
   components: {
-    Navbar
+    layoutDefault
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>

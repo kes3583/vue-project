@@ -1,0 +1,39 @@
+<template>
+  <div class="col-md-3 left_col">
+    <div class="left_col scroll-view">
+      <logo />
+
+      <div class="clearfix"></div>
+
+      <profile />
+
+      <br />
+
+      <navbarMenu />
+
+      <navbarFooter />
+    </div>
+  </div>
+</template>
+
+<script>
+  import logo from "@/layout/navbar/logo";
+  import navbarMenu from "@/layout/navbar/navbarMenu.vue";
+  import profile from "@/layout/navbar/profile.vue";
+  import navbarFooter from "@/layout/navbar/navbarFooter.vue";
+
+  export default {
+    name: "navbarDefault",
+    components: {
+      logo,
+      navbarMenu,
+      profile,
+      navbarFooter
+    }
+  }
+
+</script>
+
+<style lang="scss" scoped>
+
+</style>
