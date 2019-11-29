@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-3 left_col">
+  <div class="col-md-3 left_col" id="sidebar">
     <div class="left_col scroll-view">
       <logo />
 
@@ -35,5 +35,14 @@
 </script>
 
 <style lang="scss" scoped>
-
+.left_col {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s;
+    //background-color: var(--sidebar-bgc);
+    width: var(--sidebar-width);
+    height: 100vh;
+    
+}
 </style>
