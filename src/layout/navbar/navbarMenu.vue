@@ -4,9 +4,19 @@
     <div class="menu_section">
       <h3>General</h3>
       <ul class="nav side-menu">
-        <li v-for="route in routes" :key="route.fullPath"><router-link :to="route.path">{{route.name}} <span class="fa fa-chevron-down"></span></router-link>
-        
+        <li v-for="route in routes" :key="route.fullPath">
+          <router-link :to="{name: route.name}" :key="route.path">{{route.name}} <span class="fa fa-chevron-down"></span></router-link>
         </li>
+        <!-- <li>
+          <router-link to="/" >home {{$route.fullPath}} <span class="fa fa-chevron-down"></span></router-link>
+        </li>
+         <li>
+          <router-link to="/about" >about<span class="fa fa-chevron-down"></span></router-link>
+        </li>
+         <li>
+          <router-link to="/login" >login<span class="fa fa-chevron-down"></span></router-link>
+        </li> -->
+       
        
       </ul>
     </div>
@@ -38,8 +48,8 @@
 				sidebarOpen: 'sidebarOpen',
 			})
     },
-    mounted(){
-      console.log('this.routes',this.routes)
+    mounted() {
+    //console.log('Post has been mounted - routes', routes)
     }
   }
 
