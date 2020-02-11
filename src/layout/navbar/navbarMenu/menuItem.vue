@@ -1,7 +1,7 @@
 <template>
   <li>
-    <router-link :to="{name: data.name}">{{data.name}}</router-link>
-    <ul v-if="data.children && data.children.length > 0" >
+    <router-link :to="{name: data.name}" tag="div"><a class="sub">{{data.name}}</a><span :class="['fa', data.children && data.children.length > 0 ? 'fa-chevron-down': '']"></span></router-link>
+    <ul v-if="data.children && data.children.length > 0" class="nav">
       <menuItem v-for="(child,index) in data.children" :key="index" :data="child"/>
     </ul>
   </li>
@@ -14,15 +14,12 @@ export default {
   props: {
     data: Object
   },
-  watch: {
+ watch: {
     $route (to, from) {
-      // react to route changes...
      
-      //console.log('currentRoute1', this.$router.currentRoute.name)
-    
-      
+       
     }
-  }
+}
 }
 
 </script>

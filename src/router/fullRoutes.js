@@ -46,7 +46,7 @@ const fullRoutes = [
   {
     path: '/Forms',
     name: 'Forms',
-    component: () => import('@/components/Forms/Forms.vue'),
+    component: () => import( /* webpackChunkName: "forms" */ '@/components/Forms/Forms.vue'),
     meta: {
       icon: 'edit'
     },
@@ -79,7 +79,7 @@ const fullRoutes = [
       {
         path: 'child3-2',
         name: 'child32',
-        component: () => import('@/components/Tables/child2'),
+        component: () => import('@/components/Tables/child2')
       }
     ]
   }

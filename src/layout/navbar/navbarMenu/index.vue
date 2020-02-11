@@ -34,14 +34,12 @@ export default {
       routes: 'routes',
       menuOpen: 'menuOpen',
     }),
-    // currentPage (){
-    //   return this.$route.path
-    // }
+    currentPage () {
+      return this.$router.currentRoute.fullPath
+    }
   },
   mounted () {
-    console.log('Post has been mounted - sidebarOpen')
-    
-
+    //console.log('path', this.$route.path)
   },
   methods: {
     toggleMenu () {
