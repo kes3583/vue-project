@@ -2069,6 +2069,7 @@ body {
     line-height: 1.471;
 }
 
+
 .main_container .top_nav {
     display: block;
     margin-left: 230px;
@@ -2358,7 +2359,7 @@ a:focus {
 }
 
 .nav.child_menu {
-    display: none;
+    //display: none;
     position: relative;
 }
 
@@ -2419,7 +2420,7 @@ a:focus {
 }
 
 
-.nav>li>div>a {
+.nav>li>a {
     position: relative;
     display: block;
     padding: 13px 15px 12px;
@@ -3344,7 +3345,7 @@ ul.msg_list li a .message {
 .dropdown-menu {
     border: medium none;
     box-shadow: none;
-    display: none;
+    //display: none;
     float: left;
     font-size: 12px;
     left: 0;

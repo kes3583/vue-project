@@ -5,41 +5,38 @@
 </template>
 
 <script>
-  var body = document.body
-  import {mapGetters} from 'vuex'
-  export default {
-    name: "navbarActivator",
-    methods: {
-      toggleSidebar() {
-        this.$store.commit('TOGGLE_SIDEBAR');
-        
-        console.log(this.$store.state.sidebar.open)
-        if (!this.$store.state.sidebar.open) {
-          //console.log('false1')
-          this.setBodyClassSm()
-        }else{
-          //console.log('true1')
-          this.setBodyClassMd()
-        }
-       
-      },
-      setBodyClassMd() {
-        
-        body.classList.add('nav-md')
-        body.classList.remove('nav-sm')
-      },
-      setBodyClassSm() {
-        
-        body.classList.add('nav-sm')
-        body.classList.remove('nav-md')
+import { mapGetters } from 'vuex'
+var body = document.body
+export default {
+  name: 'navbarActivator',
+  methods: {
+    toggleSidebar () {
+      this.$store.commit('TOGGLE_SIDEBAR')
+
+      console.log(this.$store.state.sidebar.open)
+      if (!this.$store.state.sidebar.open) {
+        // console.log('false1')
+        this.setBodyClassSm()
+      } else {
+        // console.log('true1')
+        this.setBodyClassMd()
       }
     },
-    computed: {
-			...mapGetters({
-				sidebarOpen: 'sidebarOpen',
-			})
+    setBodyClassMd () {
+      body.classList.add('nav-md')
+      body.classList.remove('nav-sm')
+    },
+    setBodyClassSm () {
+      body.classList.add('nav-sm')
+      body.classList.remove('nav-md')
     }
+  },
+  computed: {
+    ...mapGetters({
+      sidebarOpen: 'sidebarOpen'
+    })
   }
+}
 
 </script>
 

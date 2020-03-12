@@ -1,0 +1,77 @@
+.multi-dropdown {
+    position: relative;
+    display: block;
+    padding: 13px 15px 12px;
+    
+    .dropdown-menu {
+        display:block; 
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+}
+
+#myInput {
+    box-sizing: border-box;
+    background-image: url('~@/assets/images/searchicon.png');
+    background-position: 10px 15px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    width:200px;
+}
+
+#myInput:focus {
+    outline: 3px solid #ddd;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+    .list-scroll{
+        clear:both;
+        max-height: 270px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        
+        ul.col-md-9,
+        ul.col-sm-9 {
+            width: 100%;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+            color: black;
+            padding: 5px;
+            text-decoration: none;
+            display: block;
+            label {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                margin:0;
+                padding:10px 12px;
+            }
+            input{
+                margin-right:10px;
+            }
+        }
+    }
+    .col-md-12, .col-sm-12 {
+        padding: 0;
+    }
+}
+
+.dropdown-content {
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+    
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}

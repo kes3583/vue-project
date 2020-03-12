@@ -8,32 +8,27 @@
         <div class="animate form login_form">
           <section class="login_content">
             <form>
-              <h1>Login Form</h1>
+              <h1>로그인</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" class="form-control" placeholder="아이디를 입력해주세요" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Log in</a>
+                <a class="btn btn-default submit" href="/">Log in</a>
                 <a class="reset_pass" href="#">Lost your password?</a>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">New to site?
-                  <a href="#signup" class="to_register"> Create Account </a>
+                <p class="change_link">처음이신가요?
+                  <a href="#signup" class="to_register"> 관리자신청 </a>
                 </p>
 
                 <div class="clearfix"></div>
                 <br />
-
-                <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-                </div>
               </div>
             </form>
           </section>
@@ -42,35 +37,27 @@
         <div id="register" class="animate form registration_form">
           <section class="login_content">
             <form>
-              <h1>Create Account</h1>
+              <h1>관리자 신청</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" class="form-control" placeholder="아이디" required="" id="first-id"/>
+                <label class="col-form-label col-md-3 col-sm-3 label-align" for='first-id'>First Name <span
+                    class="required">*</span>
+                </label>
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
+                <input type="text" class="form-control" placeholder="이름" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="email" class="form-control" placeholder="이메일" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
+                <input type="password" class="form-control" placeholder="비밀번호" required="" />
+              </div>
+              <div>
+                <a class="btn btn-default submit" href="/">신청</a>
               </div>
 
               <div class="clearfix"></div>
-
-              <div class="separator">
-                <p class="change_link">Already a member ?
-                  <a href="#signin" class="to_register"> Log in </a>
-                </p>
-
-                <div class="clearfix"></div>
-                <br />
-
-                <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-                </div>
-              </div>
             </form>
           </section>
         </div>
@@ -102,8 +89,9 @@ export default {
     this.isActive = true
   },
   mounted () {
-    //console.log('this', this.$el.parentNode.parentElement.parentElement.parentElement)
-    this.$el.parentNode.parentElement.parentElement.parentElement.classList.add('login')
+    //console.log('body', document.querySelector('body'))
+    //console.log('this', this.$el.parentNode.parentElement)
+    document.querySelector('body').classList.add('login')
     //this.$el.parentNode.parentElement.parentElement.parentElement.classList.remove('login')
       
   },
@@ -128,7 +116,7 @@ export default {
   beforeDestroy(){
     //console.log('body', document.querySelector('body'))
     this.isActive = false;
-    document.querySelector('body').classList.remove('login')
+    //document.querySelector('body').classList.remove('login')
   },
 }
 </script>
