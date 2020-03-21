@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import fullRoutes from '@/router/fullRoutes'
 Vue.use(Vuex)
 
-//module 폴더 안 파일 불러오기
+// module 폴더 안 파일 불러오기
 const modulesFiles = require.context('./modules', false, /\.js$/)
 
 const modules = modulesFiles.keys().reduce((modules, modulePath) => {
@@ -29,7 +29,6 @@ export default new Vuex.Store({
     sidebarOpen: state => state.sidebar.open,
     routes: state => state.permittedRoutes,
     menuOpen: state => state.menu.open
-    
   },
   mutations: {
     TOGGLE_SIDEBAR: state => {

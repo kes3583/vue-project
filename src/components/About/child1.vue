@@ -15,11 +15,44 @@
           </div>
           <div class="x_content">
             <br>
-            <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+            <form id="demo-form1" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
               <div class="item form-group">
-                <dropdown v-for="(item, idx) in items" :key="idx" :item="item" :is-selected="selectedItem" @selected="handleSelected($event)" ref='dropdownMenu'>  </dropdown>
+                <dropdown v-for="(item, idx) in items" :key="idx" :item="item" :is-selected="selectedItem"
+                  @selected="handleSelected($event)" ref='dropdownMenu'> </dropdown>
               </div>
-
+              <table class="table">
+                <colgroup>
+                  <col span='3' width='15%'>
+                  <col width='300px'>
+                  <col width='*'>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>key</th>
+                    <th>title</th>
+                    <th>contents</th>
+                    <th>tag</th>
+                    <th>*</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>
+                      <span class="tag"><span>social&nbsp;&nbsp;</span><a href="#" title="Removing tag">x</a></span>
+                      <span class="tag"><span>social&nbsp;&nbsp;</span><a href="#" title="Removing tag">x</a></span>
+                    </td>
+                    <td>@mdo</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="form-group row">
+                <div class="col-md-12 tr">
+                  <button type="submit" class="btn btn-success" @click.prevent="goCreate">등록</button>
+                </div>
+              </div>
             </form>
           </div>
         </div>
@@ -39,19 +72,18 @@ export default {
   data () {
     return {
       selectedItem: null,
-      items: [
-        {
-          title: 'Foo',
-          description: 'I am the description for Foo'
-        },
-        {
-          title: 'Bar',
-          description: 'I am the description for Bar'
-        },
-        {
-          title: 'ohh',
-          description: 'I am the description for ohh'
-        }
+      items: [{
+        title: 'Foo',
+        description: 'I am the description for Foo'
+      },
+      {
+        title: 'Bar',
+        description: 'I am the description for Bar'
+      },
+      {
+        title: 'ohh',
+        description: 'I am the description for ohh'
+      }
       ]
 
     }
@@ -59,6 +91,10 @@ export default {
   methods: {
     handleSelected (id) {
       this.selectedItem = id
+    },
+    goCreate () {
+      this.$router.push({ path: '/about/create' })
+      
     }
   },
   created () {
@@ -67,15 +103,18 @@ export default {
       el.id = count
       count++
     })
-    console.log(this.items)
+    //console.log(this.items)
   }
 }
 
 </script>
 <style lang='scss'>
-  .forms{
-    .row{
+  .forms {
+    .row {
       margin-top: 20px;
     }
+    table th, table td{text-align: center;}
+    
   }
+  td span{line-height: 1 !important}
 </style>

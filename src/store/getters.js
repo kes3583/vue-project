@@ -1,6 +1,6 @@
 export default {
 
-  sidebarOpen: state => state.apps.sidebar.open,
+  sidebarOpen: state => state.apps.sidebar.open
   
 
 }

@@ -12,20 +12,25 @@ const fullRoutes = [
     children: [
       {
         path: 'about/child1',
-        name: '컨텐츠관리',
-        component: () => import(/* webpackChunkName: "about" */ '@/components/About/child1.vue'),
+        name: 'child1',
+        component: () => import(/* webpackChunkName: "List" */ '@/components/About/child1.vue'),
         meta: {
           icon: 'bug'
         }
       },
       {
         path: 'about/child2',
-        name: '이미지관리',
-        component: () => import( /* webpackChunkName: "about" */ '@/components/About/child2.vue'),
+        name: 'child2',
+        component: () => import(/* webpackChunkName: "ImageList" */ '@/components/About/child2.vue'),
         meta: {
           icon: 'bug'
-        },
-      }
+        }
+      },
+      {
+        path: 'about/create',
+        name: 'create',
+        component: () => import(/* webpackChunkName: "Create" */ '@/components/About/create.vue')
+      },
     ]
   }
 ]

@@ -10,7 +10,7 @@ export default {
     vars: {
       sidebar: {
         openWidth: 230,
-        bgc: '#393942',
+        bgc: '#393942'
       },
       toolbar: {
         height: 50,
