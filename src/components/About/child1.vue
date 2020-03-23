@@ -17,9 +17,9 @@
             <br>
             <form id="demo-form1" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
               <div class="item form-group">
-                <dropdown v-for="(item, idx) in items" :key="idx" :item="item" :is-selected="selectedItem"
-                  @selected="handleSelected($event)" ref='dropdownMenu'> </dropdown>
-              </div>
+                <dropdown2  v-for="(item, idx) in items" :key="idx" :item="item" />
+              </div>   
+
               <table class="table">
                 <colgroup>
                   <col span='3' width='15%'>
@@ -63,11 +63,11 @@
 
 <script>
 import '@/assets/sass/forms.scss'
-import dropdown from '@/components/Forms/dropdown'
+import dropdown2 from '@/components/Forms/dropdown2'
 export default {
   name: 'contents',
   components: {
-    dropdown
+    dropdown2
   },
   data () {
     return {

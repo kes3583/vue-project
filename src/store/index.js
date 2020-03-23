@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import fullRoutes from '@/router/fullRoutes'
+
 Vue.use(Vuex)
 
 // module 폴더 안 파일 불러오기
