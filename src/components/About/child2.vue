@@ -54,9 +54,8 @@ export default {
       this.$refs.dropzone.removeAllFiles()
     },
     afterComplete (file) {
-      
       console.log(file.name)
-      console.log(this.dropzoneOptions.url+'/'+file.name)
+      console.log(this.dropzoneOptions.url + '/' + file.name)
     }
   }
 }

@@ -1701,7 +1701,7 @@
     width: 210px;
     z-index: 4000;
     background: #3E5367;
-    display: none;
+    //display: none;
 }
 
 .nav-sm ul.nav.child_menu li {
@@ -2361,6 +2361,7 @@ a:focus {
 .nav.child_menu {
     //display: none;
     position: relative;
+    flex-direction: column;
 }
 
 .nav.child_menu li:hover,

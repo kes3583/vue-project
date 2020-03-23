@@ -11,8 +11,8 @@
         </router-link> -->
         <li><a @click="toggleChildren"><i class="fa fa-edit"></i> 컨텐츠 관리 <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu" v-show='showChildren'>
-            <router-link to="/about/child1" exact tag="li"> 컨텐츠 관리</router-link>
-            <router-link to="/about/child2" exact tag="li"> 이미지 관리</router-link>
+            <router-link to="/about/child1" exact tag="li"> <a>컨텐츠 관리</a></router-link>
+            <router-link to="/about/child2" exact tag="li"> <a>이미지 관리</a></router-link>
           </ul>
         </li>
 
