@@ -17,37 +17,21 @@
             <br>
             <form id="demo-form1" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
               <div class="item form-group">
-                <dropdown2  v-for="(item, idx) in items" :key="idx" :item="item" />
-              </div>   
-
-              <table class="table">
-                <colgroup>
-                  <col span='3' width='15%'>
-                  <col width='300px'>
+                <dropdown2  v-for="(item, idx) in dropdownItems" :key="idx" :item="item" />
+              </div>
+              <b-table fixed responsive :items="items" :fields='fields' :per-page="perPage"       :current-page="currentPage" @row-clicked="rowClick">
+                <template v-slot:table-colgroup="scope">
+                  <col width='100px'>
+                  <col width='150px'>
                   <col width='*'>
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th>key</th>
-                    <th>title</th>
-                    <th>contents</th>
-                    <th>tag</th>
-                    <th>*</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>
-                      <span class="tag"><span>social&nbsp;&nbsp;</span><a href="#" title="Removing tag">x</a></span>
-                      <span class="tag"><span>social&nbsp;&nbsp;</span><a href="#" title="Removing tag">x</a></span>
-                    </td>
-                    <td>@mdo</td>
-                  </tr>
-                </tbody>
-              </table>
+                  <col width='200px'>
+                  <col width='*'>
+                </template>
+                <template v-slot:cell(tags)="row">
+                  <span class="tag" v-for="(item, idx) in row.item.tags" :key="idx" :item="item"><span>{{ item }}</span></span>
+                </template>
+              </b-table>
+              <b-pagination v-model="currentPage" :total-rows="rows" :per-page="perPage" align="center"></b-pagination>
               <div class="form-group row">
                 <div class="col-md-12 tr">
                   <button type="submit" class="btn btn-success" @click.prevent="goCreate">등록</button>
@@ -64,15 +48,20 @@
 <script>
 import '@/assets/sass/forms.scss'
 import dropdown2 from '@/components/Forms/dropdown2'
+import data from '@/data'
 export default {
-  name: 'contents',
+  name: 'boardList',
   components: {
     dropdown2
   },
   data () {
+    let contentItems = data.Content.sort((a, b) => {
+      return b.content_id - a.content_id
+    }) // 내림차순 30 - 0
+
     return {
       selectedItem: null,
-      items: [{
+      dropdownItems: [{
         title: 'Foo',
         description: 'I am the description for Foo'
       },
@@ -84,26 +73,65 @@ export default {
         title: 'ohh',
         description: 'I am the description for ohh'
       }
-      ]
+      ],
+      currentPage: 1, // 현재 페이지
+      perPage: 10, // 페이지당 보여줄 갯수
+      fields: [
+        // {
+        //   key: 'content_id',
+        //   label: '번호'
+        // },
+        {
+          key: 'key',
+          label: '키'
+        },
+        {
+          key: 'title',
+          label: '제목'
+        },
+        {
+          key: 'context',
+          label: '내용'
+        },
+        {
+          key: 'tags',
+          label: '태그'
+        },
+        {
+          key: 'used',
+          label: '사용'
+        }
+      ],
+      // listItems: [
+      //   { key: 21, title: 'Larsen', content: 'Shaw', tag: ['운전습관', '주유할인'], used: 'test' },
+      //   { key: 40, title: 'Dickerson', content: 'Macdonald', tag: [], used: '' },
+      //   { key: 89, title: 'Geneva', content: 'Wilson', tag: ['운전습관'], used: '' },
+      //   { key: 38, title: 'Jami', content: 'Carney', tag: ['운전습관','주유할인'], used: '' }
+      // ]
+      items: contentItems
 
     }
   },
   methods: {
-    handleSelected (id) {
-      this.selectedItem = id
+    // handleSelected (id) {
+    //   this.selectedItem = id
+    // },
+    rowClick (item, index, e) {
+      this.$router.push({
+        path: `/about/view/${item.content_id}`
+      })
     },
     goCreate () {
       this.$router.push({ path: '/about/create' })
-      
     }
   },
   created () {
-    let count = 0
-    this.items.forEach(el => {
-      el.id = count
-      count++
-    })
-    //console.log(this.items)
+    
+  },
+  computed: {
+    rows () {
+      return this.items.length
+    }
   }
 }
 
@@ -114,7 +142,7 @@ export default {
       margin-top: 20px;
     }
     table th, table td{text-align: center;}
-    
+
   }
   td span{line-height: 1 !important}
 </style>

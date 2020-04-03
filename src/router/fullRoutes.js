@@ -13,7 +13,7 @@ const fullRoutes = [
       {
         path: 'about/child1',
         name: 'child1',
-        component: () => import(/* webpackChunkName: "List" */ '@/components/About/child1.vue'),
+        component: () => import(/* webpackChunkName: "boardList" */ '@/components/About/child1.vue'),
         meta: {
           icon: 'bug'
         }
@@ -27,10 +27,15 @@ const fullRoutes = [
         }
       },
       {
-        path: 'about/create',
+        path: 'about/create/:contentId?',
         name: 'create',
         component: () => import(/* webpackChunkName: "Create" */ '@/components/About/create.vue')
       },
+      {
+        path: 'about/view/:contentId',
+        name: 'view',
+        component: () => import(/* webpackChunkName: "View" */ '@/components/About/view.vue')
+      }
     ]
   }
 ]
