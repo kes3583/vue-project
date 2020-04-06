@@ -21,7 +21,8 @@
               </div>
               <b-table fixed responsive :items="items" :fields='fields' :per-page="perPage"       :current-page="currentPage" @row-clicked="rowClick">
                 <template v-slot:table-colgroup="scope">
-                  <col width='100px'>
+                  <col width='50px'>
+                  <col width='50px'>
                   <col width='150px'>
                   <col width='*'>
                   <col width='200px'>
@@ -77,10 +78,10 @@ export default {
       currentPage: 1, // 현재 페이지
       perPage: 10, // 페이지당 보여줄 갯수
       fields: [
-        // {
-        //   key: 'content_id',
-        //   label: '번호'
-        // },
+        {
+          key: 'content_id',
+          label: '번호'
+        },
         {
           key: 'key',
           label: '키'
@@ -118,11 +119,11 @@ export default {
     // },
     rowClick (item, index, e) {
       this.$router.push({
-        path: `/about/view/${item.content_id}`
+        path: `/board/view/${item.content_id}`
       })
     },
     goCreate () {
-      this.$router.push({ path: '/about/create' })
+      this.$router.push({ path: '/board/create' })
     }
   },
   created () {

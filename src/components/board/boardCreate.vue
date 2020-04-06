@@ -39,9 +39,9 @@
                 </div>
               </div>
               <div class="item form-group">
-                <label class="col-form-label col-md-3 col-sm-3 label-align" for="tags">태그 </label>
+                <label class="col-form-label col-md-3 col-sm-3 label-align" for="tags-basic">태그 </label>
                 <div class="col-md-6 col-sm-6 ">
-                  <vue-tags-input id='tags' v-model="tag" :tags="tags" @tags-changed="newTags => tags = newTags" placeholder='태그입력' />
+                  <b-form-tags input-id="tags-basic" v-model="tags" class="mb-2" placeholder='태그입력' separator=" " size="sm" tag-variant="primary"></b-form-tags>
                 </div>
               </div>
               <div class="item form-group">
@@ -49,7 +49,7 @@
                     class="required"> *</span>
                 </label>
                 <div class="col-md-6 col-sm-6 ">
-                 <b-form-input id="used" v-model="link" size="sm" placeholder="사용"></b-form-input>
+                 <b-form-input id="used" v-model="used" size="sm" placeholder="사용"></b-form-input>
                 </div>
               </div>
               <div class="ln_solid"></div>
@@ -70,35 +70,36 @@
 <script>
 
 import '@/assets/sass/forms.scss'
-import VueTagsInput from '@johmun/vue-tags-input'
 import data from '@/data'
 export default {
-  name: 'contents',
-  components: {
-    VueTagsInput
-  },
+  name: 'create',
   data () {
-    const contentId = Number(this.$route.params.contentId)
+    const contentId = this.$route.params.contentId
     const contentData = data.Content.filter(
       contentItem => contentItem.content_id === contentId
     )[0]
-    console.log('contentData.tags', contentData.tags)
-    var contentTags = contentData.tags.map((v, i) => ({ 'text': contentData.tags[i] }))
-    // console.log('contentTags',contentTags)
+    console.log('contentId', contentId)
+    console.log('contentId', contentId !== undefined ? 'title' : 'nothing')
+
     return {
       index: contentId,
-      tag: '',
-      subject: contentId !== undefined ? contentData.title : '',
-      key: contentId !== undefined ? contentData.key : '',
-      context: contentId !== undefined ? contentData.context : '',
-      tags: contentId !== undefined ? contentTags : [],
-      used: contentId !== undefined ? contentData.used : ''
+      key: '',
+      subject: '',
+      context: '',
+      tags: [],
+      used: ''
     }
   },
+  created () {
+    this.getData()
+  },
   methods: {
-    // get tags' text
-    getTagsText (item) {
-      return item.text
+    getData () {
+      this.key = this.contentId !== undefined ? this.contentData.key : ''
+      this.subject = this.contentId !== undefined ? this.contentData.title : ''
+      this.context = this.contentId !== undefined ? this.contentData.context : ''
+      this.tags = this.contentId !== undefined ? this.contentData.tags : []
+      this.used = this.contentId !== undefined ? this.contentData.used : ''
     },
     uploadContent () { // 저장
       let contentItems = data.Content.sort((a, b) => { return b.content_id - a.content_id })
@@ -110,7 +111,7 @@ export default {
         key: this.key,
         title: this.subject,
         context: this.context,
-        tags: this.tags.map(this.getTagsText),
+        tags: this.tags,
         used: this.used
       })
 
@@ -135,8 +136,8 @@ export default {
       data.Content[contentIndex].key = this.key
       data.Content[contentIndex].title = this.subject
       data.Content[contentIndex].context = this.context
-      data.Content[contentIndex].tags = this.tags.map(this.getTagsText)
-      data.Content[contentIndex].link = this.link
+      data.Content[contentIndex].tags = this.value
+      data.Content[contentIndex].used = this.used
       this.$router.push({
         path: '/'
       })

@@ -7,34 +7,34 @@ const fullRoutes = [
   },
   {
     path: '/',
-    redirect: '/about/child1',
+    redirect: '/board/boardList',
     component: () => import('@/layout/layoutDefault'),
     children: [
       {
-        path: 'about/child1',
-        name: 'child1',
-        component: () => import(/* webpackChunkName: "boardList" */ '@/components/About/child1.vue'),
+        path: 'board/boardList',
+        name: 'boardList',
+        component: () => import(/* webpackChunkName: "BoardList" */ '@/components/board/boardList.vue'),
         meta: {
           icon: 'bug'
         }
       },
       {
-        path: 'about/child2',
-        name: 'child2',
-        component: () => import(/* webpackChunkName: "ImageList" */ '@/components/About/child2.vue'),
+        path: 'board/imageUpload',
+        name: 'imageUpload',
+        component: () => import(/* webpackChunkName: "ImageUpload" */ '@/components/board/imageUpload.vue'),
         meta: {
           icon: 'bug'
         }
       },
       {
-        path: 'about/create/:contentId?',
+        path: 'board/create/:contentId?',
         name: 'create',
-        component: () => import(/* webpackChunkName: "Create" */ '@/components/About/create.vue')
+        component: () => import(/* webpackChunkName: "Create" */ '@/components/board/boardCreate.vue')
       },
       {
-        path: 'about/view/:contentId',
+        path: 'board/view/:contentId',
         name: 'view',
-        component: () => import(/* webpackChunkName: "View" */ '@/components/About/view.vue')
+        component: () => import(/* webpackChunkName: "View" */ '@/components/board/boardView.vue')
       }
     ]
   }

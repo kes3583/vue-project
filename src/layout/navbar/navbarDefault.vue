@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import logo from "@/layout/navbar/logo";
+import logo from '@/layout/navbar/logo'
 import navbarMenu from '@/layout/navbar/navbarMenu/index.vue'
-import profile from "@/layout/navbar/profile.vue";
-import navbarFooter from "@/layout/navbar/navbarFooter.vue";
+import profile from '@/layout/navbar/profile.vue'
+import navbarFooter from '@/layout/navbar/navbarFooter.vue'
 
 export default {
-  name: "navbarDefault",
+  name: 'navbarDefault',
   components: {
     logo,
     navbarMenu,
@@ -43,6 +43,6 @@ export default {
     //background-color: var(--sidebar-bgc);
     width: var(--sidebar-width);
     height: 100vh;
-    
+
 }
 </style>

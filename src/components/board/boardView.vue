@@ -94,7 +94,7 @@ export default {
     },
     updateData () {
       this.$router.push({
-        path: `/about/create/${this.index}`
+        path: `/board/create/${this.index}`
       })
     },
     deleteData () {
