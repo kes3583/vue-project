@@ -10,8 +10,8 @@
 </template>
 
 <script>
-  export default {
-    name: 'footer',
-  }
+export default {
+  name: 'footer'
+}
 
 </script>

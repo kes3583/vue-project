@@ -5,7 +5,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <dashboardGraph />
       </div>
-    </div> 
+    </div>
   </div>
 </template>
 
@@ -20,8 +20,8 @@ export default {
   components: {
     topTiles, dashboardGraph
   },
-  mounted(){
-    
+  mounted () {
+
   }
 }
 </script>

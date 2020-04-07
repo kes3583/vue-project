@@ -94,13 +94,13 @@
 </template>
 
 <script>
-  import navbarActivator from "@/layout/topnav/navbarActivator";
-  export default {
-    name: "topNav",
-    components : {
-      navbarActivator
-    }
+import navbarActivator from '@/layout/topnav/navbarActivator'
+export default {
+  name: 'topNav',
+  components: {
+    navbarActivator
   }
+}
 
 </script>
 

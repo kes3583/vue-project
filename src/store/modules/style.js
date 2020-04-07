@@ -5,7 +5,7 @@ export default {
       secondary: '#999999',
       success: '#00cc66',
       warning: '#ff9900',
-      danger: '#f85555',
+      danger: '#f85555'
     },
     vars: {
       sidebar: {
@@ -13,8 +13,8 @@ export default {
         bgc: '#393942'
       },
       toolbar: {
-        height: 50,
-      },
+        height: 50
+      }
     }
   },
   getters: {
@@ -22,7 +22,7 @@ export default {
       return {
         '--sidebar-bgc': state.vars.sidebar.bgc,
         '--sidebar-width': (rootGetters.sidebarOpen ? state.vars.sidebar.openWidth : 65) + 'px',
-        '--toolbar-height': state.vars.toolbar.height + 'px',
+        '--toolbar-height': state.vars.toolbar.height + 'px'
       }
     }
   }

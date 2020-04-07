@@ -71,7 +71,6 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 // import NprogressContainer from 'vue-nprogress/src/NprogressContainer'
 
-
 export default {
   name: 'login',
   data () {
@@ -82,18 +81,17 @@ export default {
         checked: []
       },
       show: true,
-      isActive: false,
+      isActive: false
     }
   },
-  created(){
+  created () {
     this.isActive = true
   },
   mounted () {
-    //console.log('body', document.querySelector('body'))
-    //console.log('this', this.$el.parentNode.parentElement)
+    // console.log('body', document.querySelector('body'))
+    // console.log('this', this.$el.parentNode.parentElement)
     document.querySelector('body').classList.add('login')
-    //this.$el.parentNode.parentElement.parentElement.parentElement.classList.remove('login')
-      
+    // this.$el.parentNode.parentElement.parentElement.parentElement.classList.remove('login')
   },
   methods: {
     onSubmit (evt) {
@@ -113,17 +111,17 @@ export default {
       })
     }
   },
-  beforeDestroy(){
-    //console.log('body', document.querySelector('body'))
-    this.isActive = false;
-    //document.querySelector('body').classList.remove('login')
-  },
+  beforeDestroy () {
+    // console.log('body', document.querySelector('body'))
+    this.isActive = false
+    // document.querySelector('body').classList.remove('login')
+  }
 }
 </script>
 <style lang="scss" scoped>
   .login{
-    
+
       background: #f7f7f7 !important
-    
+
   }
 </style>

@@ -3,7 +3,7 @@ module.exports = {
     config.module.rules.delete('eslint')
   },
   devServer: {
-    port: 8002,
+    port: 8002
   },
   css: {
     loaderOptions: {

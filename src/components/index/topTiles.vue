@@ -37,8 +37,8 @@
 
 <script>
 
-  export default {
-    name: 'topTiles',
-  }
+export default {
+  name: 'topTiles'
+}
 
 </script>

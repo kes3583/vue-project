@@ -17,8 +17,11 @@
             <br>
             <form id="demo-form1" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
               <div class="item form-group">
-                <dropdown2  v-for="(item, idx) in dropdownItems" :key="idx" :item="item" />
+                <div class="col-md-6 col-sm-6">
+                  <multiSelect2 />
+                </div>
               </div>
+
               <b-table fixed responsive :items="items" :fields='fields' :per-page="perPage"       :current-page="currentPage" @row-clicked="rowClick">
                 <template v-slot:table-colgroup="scope">
                   <col width='50px'>
@@ -47,13 +50,12 @@
 </template>
 
 <script>
-import '@/assets/sass/forms.scss'
-import dropdown2 from '@/components/Forms/dropdown2'
+import multiSelect2 from '@/components/Forms/multiSelect'
 import data from '@/data'
 export default {
   name: 'boardList',
   components: {
-    dropdown2
+    multiSelect2
   },
   data () {
     let contentItems = data.Content.sort((a, b) => {
@@ -62,6 +64,15 @@ export default {
 
     return {
       selectedItem: null,
+      value: [],
+      options: [
+        { name: 'Vue.js', language: 'JavaScript' },
+        { name: 'Adonis', language: 'JavaScript' },
+        { name: 'Rails', language: 'Ruby' },
+        { name: 'Sinatra', language: 'Ruby' },
+        { name: 'Laravel', language: 'PHP' },
+        { name: 'Phoenix', language: 'Elixir' }
+      ],
       dropdownItems: [{
         title: 'Foo',
         description: 'I am the description for Foo'
@@ -127,7 +138,7 @@ export default {
     }
   },
   created () {
-    
+
   },
   computed: {
     rows () {

@@ -13,8 +13,8 @@
 </template>
 
 <script>
-  export default {
-    name: "profile",
-  }
+export default {
+  name: 'profile'
+}
 
 </script>

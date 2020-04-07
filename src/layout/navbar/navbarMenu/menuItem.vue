@@ -14,12 +14,11 @@ export default {
   props: {
     data: Object
   },
- watch: {
+  watch: {
     $route (to, from) {
-     
-       
+
     }
-}
+  }
 }
 
 </script>

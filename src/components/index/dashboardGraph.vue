@@ -67,8 +67,8 @@
 </template>
 
 <script>
-  export default {
-    name: 'dashboard-graph',
-  }
+export default {
+  name: 'dashboard-graph'
+}
 
 </script>
