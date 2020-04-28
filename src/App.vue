@@ -1,23 +1,45 @@
 <template>
-  <div id="app" :style="STYLE_VARIABLES">
-    <v-app id="inspire">
-      <router-view></router-view>
-    </v-app>
+  <div>
+    <template v-if="!$route.meta.allowAnonymous">
+          <v-app id="inspire">
+            <div class="app-container">
+              <v-app-bar app color="indigo" dark>
+                <v-app-bar-nav-icon @click.native.stop="sidebarOpen = !sidebarOpen" />
+                <v-toolbar-title>Application</v-toolbar-title>
+              </v-app-bar>
+              <navigation v-model="sidebarOpen" />
+              <v-content>
+                <router-view></router-view>
+              </v-content>
+            </div>
+          </v-app>
+    </template>
+    <template v-else>
+      <transition>
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
+      </transition>
+    </template>
   </div>
 </template>
-
 <script>
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'app',
-  components: {
-
+  data () {
+    return {
+      drawer: false,
+      mini: null
+    }
   },
   computed: {
-    ...mapGetters({
-      STYLE_VARIABLES: 'STYLE_VARIABLES'
-    })
+    sidebarOpen: {
+      get () { return this.$store.getters.sidebarOpen },
+      set (v) { return this.$store.commit('TOGGLE_SIDEBAR', v) }
+    }
   }
+
 }
+
 </script>

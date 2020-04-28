@@ -17,26 +17,18 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
 export default new Vuex.Store({
   modules,
   state: {
-    title: 'admin',
     sidebar: {
-      open: true
-    },
-    menu: {
       open: true
     },
     permittedRoutes: fullRoutes
   },
   getters: {
     sidebarOpen: state => state.sidebar.open,
-    routes: state => state.permittedRoutes,
-    menuOpen: state => state.menu.open
+    routes: state => state.permittedRoutes
   },
   mutations: {
-    TOGGLE_SIDEBAR: state => {
-      state.sidebar.open = !state.sidebar.open
-    },
-    TOGGLE_MENU: state => {
-      state.menu.open = !state.menu.open
+    TOGGLE_SIDEBAR: (state, data) => {
+      state.sidebar.open = data     
     }
   },
   actions: {

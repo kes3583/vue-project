@@ -13,6 +13,7 @@ export default {
         bgc: '#393942'
       },
       toolbar: {
+        open: false,
         height: 50
       }
     }
@@ -24,6 +25,6 @@ export default {
         '--sidebar-width': (rootGetters.sidebarOpen ? state.vars.sidebar.openWidth : 65) + 'px',
         '--toolbar-height': state.vars.toolbar.height + 'px'
       }
-    }
+    },
   }
 }

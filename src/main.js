@@ -5,22 +5,23 @@ import router from './router'
 import store from './store'
 import vuetify from '@/plugins/vuetify'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import { setupComponents } from '@/utils/setupComponents'
 
 import 'bootstrap/dist/css/bootstrap.css'
 // import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'font-awesome/css/font-awesome.min.css'
 import 'animate.css/animate.css'
-import '@/assets/sass/custom.scss'
+// import '@/assets/sass/custom.scss'
 import '@/assets/sass/_reboot.scss'
-
 
 Vue.use(NProgress)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
+setupComponents(Vue)
 
 Vue.config.productionTip = false
 
-new Vue({
+window.myVueComponent = new Vue({
   vuetify,
   router,
   store,
