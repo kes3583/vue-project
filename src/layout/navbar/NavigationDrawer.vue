@@ -1,16 +1,21 @@
 <template>
   <!-- sidebar menu -->
   <v-navigation-drawer app v-bind:value="value" v-on:input="$emit('input', $event)" fixed >
-    <v-list-item class="px-2">
-      <v-list-item-avatar>
-        <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
-      </v-list-item-avatar>
-      <v-list-item-title>John Leider</v-list-item-title>
+    <v-list-item>
+      <v-avatar color="red">
+        <span class="white--text headline">CJ</span>
+      </v-avatar>
+      <v-list-item-title>강은심</v-list-item-title>
     </v-list-item>
 
     <v-divider></v-divider>
     
     <menuItems></menuItems>
+    <template v-slot:append>
+        <div class="pa-2">
+          <v-btn block>Logout</v-btn>
+        </div>
+      </template>
   </v-navigation-drawer>
   <!-- /sidebar menu -->
 </template>
@@ -47,3 +52,8 @@ export default {
 }
 
 </script>
+<style lang="scss">
+.v-navigation-drawer {
+    background-color: primary;
+}
+</style>

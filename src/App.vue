@@ -3,9 +3,8 @@
     <template v-if="!$route.meta.allowAnonymous">
           <v-app id="inspire">
             <div class="app-container">
-              <v-app-bar app color="indigo" dark>
-                <v-app-bar-nav-icon @click.native.stop="sidebarOpen = !sidebarOpen" />
-                <v-toolbar-title>Application</v-toolbar-title>
+              <v-app-bar app>
+                <v-app-bar-nav-icon @click.native.stop="sidebarOpen = !sidebarOpen" />                
               </v-app-bar>
               <navigation v-model="sidebarOpen" />
               <v-content>
@@ -27,17 +26,12 @@
 
 export default {
   name: 'app',
-  data () {
-    return {
-      drawer: false,
-      mini: null
-    }
-  },
   computed: {
     sidebarOpen: {
       get () { return this.$store.getters.sidebarOpen },
       set (v) { return this.$store.commit('TOGGLE_SIDEBAR', v) }
     }
+
   }
 
 }

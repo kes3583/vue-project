@@ -28,7 +28,7 @@ export default new Vuex.Store({
   },
   mutations: {
     TOGGLE_SIDEBAR: (state, data) => {
-      state.sidebar.open = data     
+      state.sidebar.open = data
     }
   },
   actions: {

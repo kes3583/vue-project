@@ -1,15 +1,16 @@
 
 const fullRoutes = [
+  // {
+  //   path: '/',
+  //   component: () => import('@/components/board/boardList.vue')
+  // },
   {
     path: '/',
-    component: () => import('@/components/board/boardList.vue')
-  },
-  {
-    path: '/board/boardList',
+    //redirect: '/board/boardList',
     name: 'boardList',
     component: () => import(/* webpackChunkName: "BoardList" */ '@/components/board/boardList.vue'),
     meta: {
-      icon: 'bug'
+      icon: 'fa-edit'
     }
   },
   {

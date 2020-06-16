@@ -11,25 +11,23 @@ export default new Vuetify({
     iconfont: 'mdi'
   },
   theme: {
-    disable: false,
-    //dark: true, // default - light 
+    //disable: false,
+    dark: false, // default - light 
     default: 'light',
     options: {
       customProperties: true
     },
     themes: {
       light: {
-        primary: '#00bcd4',
-        secondary: '#3f51b5',
-        accent: '#e91e63',
+        primary: '#464d69',
+        secondary: '#464d69',
+        drawer: '#464d69',
+        accent: '#464d69',
         error: '#f44336',
         warning: '#ff5722',
         info: '#607d8b',
         success: '#ff9800',
-        anchor: '#fff'
-      },
-      dark: {
-        primary: colors.blue.lighten - 3
+        anchor: '#464d69'     
       }
     }
   }

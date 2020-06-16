@@ -5,11 +5,7 @@
         <v-layout align-center justify-center>
           <v-flex xs12 sm8 md4 lg4>
             <v-card class="elevation-1 pa-3">
-              <v-card-text>
-                <div class="layout column align-center">
-                  <img src="static/logo.png" alt="Vue Material Admin" width="180" height="180">
-                  <h1 class="flex my-4 primary--text">Vue Admin Template</h1>
-                </div>
+              <v-card-text>               
                 <v-form>
                   <v-text-field
                     append-icon="person"
@@ -18,7 +14,7 @@
                     type="text"
                     v-model="userEmail"
                     :error="error"
-                    :rules="[rules.required]"/>
+                    :rules="rules.email"/>
                   <v-text-field
                     :type="hidePassword ? 'password' : 'text'"
                     :append-icon="hidePassword ? 'visibility_off' : 'visibility'"
@@ -56,11 +52,14 @@ export default {
       loading: false,
       userEmail: 'admin@yopmail.com',
       password: '123456',
+      testEmail: 'admin@admin.com',
+      testPassword: '1234',
       hidePassword: true,
       error: false,
       showResult: false,
       result: '',
       rules: {
+        email: [value => !!value || 'E-mail is required', value => /.+@.+/.test(value) || 'E-mail must be valid'],
         required: value => !!value || 'Required.'
       }
     }
@@ -77,9 +76,10 @@ export default {
         return
       }
 
-      if (vm.userEmail === vm.$root.userEmail && vm.password === vm.$root.userPassword) {
-        vm.$router.push({ name: 'Dashboard' })
+      if (vm.userEmail === vm.testEmail && vm.password === vm.testPassword) {
+        vm.$router.push({ path: '/' })
       } else {
+
         vm.error = true
         vm.result = 'Email or Password is incorrect.'
         vm.showResult = true
