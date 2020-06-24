@@ -11,8 +11,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'font-awesome/css/font-awesome.min.css'
 import 'animate.css/animate.css'
 import '@/assets/sass/_reboot.scss'
-import '@/assets/sass/colors.scss'
-
+import 'vuetify/dist/vuetify.min.css'
+import '@/assets/sass/_custom.scss'
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)

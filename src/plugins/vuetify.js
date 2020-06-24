@@ -1,8 +1,7 @@
 
 import Vue from 'vue'
 import Vuetify from 'vuetify'
-import colors from 'vuetify/lib/util/colors'
-import 'vuetify/dist/vuetify.min.css'
+
 
 Vue.use(Vuetify)
 
@@ -19,15 +18,15 @@ export default new Vuetify({
     },
     themes: {
       light: {
-        primary: '#464d69',
-        secondary: '#464d69',
-        drawer: '#464d69',
-        accent: '#464d69',
-        error: '#f44336',
-        warning: '#ff5722',
-        info: '#607d8b',
-        success: '#ff9800',
-        anchor: '#464d69'     
+        // primary: '#464d69',
+        // secondary: '#464d69',
+        // drawer: '#464d69',
+        // accent: '#464d69',
+        // error: '#f44336',
+        // warning: '#ff5722',
+        // info: '#607d8b',
+        // success: '#ff9800',
+        // anchor: '#464d69'     
       }
     }
   }

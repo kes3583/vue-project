@@ -4,7 +4,8 @@
           <v-app id="inspire">
             <div class="app-container">
               <v-app-bar app>
-                <v-app-bar-nav-icon @click.native.stop="sidebarOpen = !sidebarOpen" />                
+                <v-app-bar-nav-icon @click.native.stop="sidebarOpen = !sidebarOpen" />
+                <v-toolbar-title>Application</v-toolbar-title>
               </v-app-bar>
               <navigation v-model="sidebarOpen" />
               <v-content>

@@ -7,18 +7,18 @@ const fullRoutes = [
   {
     path: '/',
     //redirect: '/board/boardList',
-    name: 'boardList',
+    name: '컨텐츠 게시판 ',
     component: () => import(/* webpackChunkName: "BoardList" */ '@/components/board/boardList.vue'),
     meta: {
-      icon: 'fa-edit'
+      icon: 'mdi-playlist-plus' // material-design-icons https://cdn.materialdesignicons.com/4.5.95/
     }
   },
   {
     path: '/board/imageUpload',
-    name: 'imageUpload',
+    name: '이미지 업로드',
     component: () => import(/* webpackChunkName: "ImageUpload" */ '@/components/board/imageUpload.vue'),
     meta: {
-      icon: 'bug'
+      icon: 'mdi-upload'
     }
   },
   {

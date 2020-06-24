@@ -1,11 +1,20 @@
 <template>
   <!-- sidebar menu -->
   <v-navigation-drawer app v-bind:value="value" v-on:input="$emit('input', $event)" fixed >
-    <v-list-item>
+    <h1 class="d-flex">
+        <a href="index.html"  class="d-flex justify-center align-center">
+          <!-- <i class="logo"></i> -->
+          Admin
+        </a>
+    </h1>
+    <v-list-item>      
       <v-avatar color="red">
         <span class="white--text headline">CJ</span>
       </v-avatar>
-      <v-list-item-title>강은심</v-list-item-title>
+      <v-list-item-title  flex-column class="user-name">
+        <span>Welcome,</span>
+        <h6>강은심</h6>
+      </v-list-item-title>
     </v-list-item>
 
     <v-divider></v-divider>
@@ -15,7 +24,7 @@
         <div class="pa-2">
           <v-btn block>Logout</v-btn>
         </div>
-      </template>
+    </template>
   </v-navigation-drawer>
   <!-- /sidebar menu -->
 </template>
